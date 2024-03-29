@@ -1,0 +1,35 @@
+{
+  "name": "@functions/claims",
+  "version": "0.0.1",
+  "engines": {
+    "node": "20"
+  },
+  "scripts": {
+    "lint": "eslint --ext .js,.ts .",
+    "build": "cp -r ../../constants ./src/ && tsc",
+    "build:watch": "tsc --watch",
+    "serve": "pnpm run build && firebase emulators:start --only functions",
+    "shell": "pnpm run build && firebase functions:shell",
+    "start": "pnpm run shell",
+    "deploy": "pnpm run build && firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "main": "lib/index.js",
+  "dependencies": {
+    "@google-cloud/functions-framework": "^3.3.0",
+    "@google-cloud/pubsub": "^4.0.6",
+    "@irys/sdk": "^0.1.4",
+    "@metaplex-foundation/mpl-inscription": "^0.8.0",
+    "@metaplex-foundation/mpl-token-metadata": "^3.1.2",
+    "@metaplex-foundation/umi": "^0.8.0",
+    "@metaplex-foundation/umi-bundle-defaults": "^0.8.0",
+    "@solana/spl-memo": "^0.2.3",
+    "@solana/spl-token": "^0.3.9",
+    "@solana/web3.js": "^1.87.6",
+    "axios": "^1.5.1",
+    "ethers": "^6.9.0",
+    "firebase-admin": "^11.11.0",
+    "firebase-functions": "^4.4.1",
+    "moralis": "^2.24.0"
+  }
+}
